@@ -4,11 +4,11 @@
 
 	<parent>
 		<groupId>com.artivisi.sailorman</groupId>
-		<artifactId>com.artivisi.sailorman.parent</artifactId>
+		<artifactId>sailorman-parent</artifactId>
 		<version>1.0-SNAPSHOT</version>
 	</parent>
 
-	<artifactId>com.artivisi.sailorman.ui.web</artifactId>
+	<artifactId>sailorman-ui.web</artifactId>
 	<packaging>war</packaging>
 	<name>Aplikasi Web (Webapp) Project Sailorman</name>
 
@@ -17,20 +17,20 @@
 
 		<dependency>
 			<groupId>com.artivisi.sailorman</groupId>
-			<artifactId>com.artivisi.sailorman.ui.springmvc</artifactId>
+			<artifactId>sailorman-ui.springmvc</artifactId>
 			<version>1.0-SNAPSHOT</version>
 		</dependency>
 
 		<dependency>
 			<groupId>com.artivisi.sailorman</groupId>
-			<artifactId>com.artivisi.sailorman.service.impl</artifactId>
+			<artifactId>sailorman-service.impl</artifactId>
 			<version>1.0-SNAPSHOT</version>
 			<scope>runtime</scope>
 		</dependency>
 
 		<dependency>
 			<groupId>com.artivisi.sailorman</groupId>
-			<artifactId>com.artivisi.sailorman.config</artifactId>
+			<artifactId>sailorman-config</artifactId>
 			<version>1.0-SNAPSHOT</version>
 			<scope>runtime</scope>
 		</dependency>

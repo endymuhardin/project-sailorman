@@ -3,11 +3,11 @@
 
 	<parent>
         <groupId>com.artivisi.sailorman</groupId>
-        <artifactId>com.artivisi.sailorman.parent</artifactId>
+        <artifactId>sailorman-parent</artifactId>
         <version>1.0-SNAPSHOT</version>
 	</parent>
 
-	<artifactId>com.artivisi.sailorman.domain</artifactId>
+	<artifactId>sailorman-domain</artifactId>
 	<packaging>jar</packaging>
 	<name>Domain Model Project Sailorman</name>
 

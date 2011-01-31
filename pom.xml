@@ -1,17 +1,17 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.artivisi.sailorman</groupId>
-	<artifactId>com.artivisi.sailorman.parent</artifactId>
+	<artifactId>sailorman-parent</artifactId>
 	<packaging>pom</packaging>
 	<version>1.0-SNAPSHOT</version>
 	<name>Project Database Pelaut - Parent</name>
 
 	<modules>
-        <module>com.artivisi.sailorman.config</module>
-        <module>com.artivisi.sailorman.domain</module>
-        <module>com.artivisi.sailorman.service.impl</module>
-        <module>com.artivisi.sailorman.ui.springmvc</module>
-        <module>com.artivisi.sailorman.ui.web</module>
+        <module>sailorman-config</module>
+        <module>sailorman-domain</module>
+        <module>sailorman-service.impl</module>
+        <module>sailorman-ui.springmvc</module>
+        <module>sailorman-ui.web</module>
     </modules>
 
 
