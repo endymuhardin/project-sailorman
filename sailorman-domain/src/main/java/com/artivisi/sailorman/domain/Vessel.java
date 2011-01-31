@@ -2,18 +2,26 @@ package com.artivisi.sailorman.domain;
 
 import java.io.Serializable;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
+
+import org.hibernate.validator.constraints.NotEmpty;
 
 @SuppressWarnings("serial")
 @Entity @Table(name="m_vessel")
 public class Vessel implements Serializable {
 	@Id @GeneratedValue
 	private Long id;
+	
+	@NotEmpty
+	@NotNull
+	@Column(nullable=false)
 	private String code;
 	private String name;
 	

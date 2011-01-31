@@ -51,9 +51,9 @@ Released   : 20090523
 				<li>
 					<h2>Menu</h2>
 					<ul>
-						<li><a href="#">Country</a><span>Manage Country List</span></li>
-						<li><a href="#">Vessel</a><span>Manage Vessel List</span></li>
-						<li><a href="#">Sailor</a><span>Manage Sailor List</span></li>
+						<li><a href="<%=request.getContextPath()%>/country/list">Country</a><span>Manage Country List</span></li>
+						<li><a href="<%=request.getContextPath()%>/vessel/list">Vessel</a><span>Manage Vessel List</span></li>
+						<li><a href="<%=request.getContextPath()%>/sailor/list">Sailor</a><span>Manage Sailor List</span></li>
 					</ul>
 				</li>
 			</ul>

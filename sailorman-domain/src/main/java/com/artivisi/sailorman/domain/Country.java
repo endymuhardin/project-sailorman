@@ -7,6 +7,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
+
+import org.hibernate.validator.constraints.NotEmpty;
 
 
 @SuppressWarnings("serial")
@@ -16,6 +19,8 @@ public class Country implements Serializable {
 	@Id @GeneratedValue
 	private Long id;
 	
+	@NotNull
+	@NotEmpty
 	@Column(unique=true, nullable=false)
 	private String code;
 	

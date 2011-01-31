@@ -1,5 +1,9 @@
 package com.artivisi.sailorman.service.impl;
 
+import java.sql.Connection;
+
+import javax.sql.DataSource;
+
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -15,11 +19,16 @@ public class SailorServiceImplTest {
 	private static SailorService sailorService;
 	
 	@BeforeClass
-	public static void initSpring(){
+	public static void initSpring() throws Exception {
 		applicationContext = new ClassPathXmlApplicationContext("classpath*:com/artivisi/**/applicationContext.xml");
 		applicationContext.registerShutdownHook();
 		
 		sailorService = (SailorService) applicationContext.getBean("sailorService");
+		
+		DataSource ds = (DataSource) applicationContext.getBean("dataSource");
+		Connection conn = ds.getConnection();
+		conn.createStatement().executeUpdate("truncate m_country");
+		conn.close();
 	}
 	
 	@AfterClass
