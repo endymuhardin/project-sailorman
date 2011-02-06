@@ -17,8 +17,8 @@ public interface SailorService {
 	
 	public void save(Sailor sailor);
 	public Sailor findSailor(Long id);
-	public List<Sailor> findSailors(Integer start, Integer rows);
+	public List<Sailor> findSailors();
 	public Long countSailors();
-	public List<Sailor> findSailors(Vessel vessel, Integer start, Integer rows);
-	public Long countSailors(Vessel vessel);
+	public List<Sailor> findSailors(String name);
+	public Long countSailors(String name);
 }

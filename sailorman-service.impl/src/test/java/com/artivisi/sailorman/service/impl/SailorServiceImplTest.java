@@ -24,9 +24,11 @@ public class SailorServiceImplTest {
 		applicationContext.registerShutdownHook();
 		
 		sailorService = (SailorService) applicationContext.getBean("sailorService");
-		
+
 		DataSource ds = (DataSource) applicationContext.getBean("dataSource");
 		Connection conn = ds.getConnection();
+		conn.createStatement().executeUpdate("truncate m_sailor");
+		conn.createStatement().executeUpdate("truncate m_vessel");
 		conn.createStatement().executeUpdate("truncate m_country");
 		conn.close();
 	}

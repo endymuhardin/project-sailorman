@@ -7,6 +7,7 @@ import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.util.StringUtils;
 
 import com.artivisi.sailorman.domain.Country;
 import com.artivisi.sailorman.domain.Sailor;
@@ -70,13 +71,8 @@ public class SailorServiceImpl implements SailorService {
 
 	@SuppressWarnings("unchecked")
 	@Override
-	public List<Sailor> findSailors(Integer start, Integer rows) {
-		if(start == null || start < 0) start = 0;
-		if(rows == null || rows < 0) rows = 20;
-		
-		return sessionFactory.getCurrentSession().createQuery("from Sailor s order by s.firstName")
-		.setFirstResult(start)
-		.setMaxResults(rows)
+	public List<Sailor> findSailors() {
+		return sessionFactory.getCurrentSession().createQuery("from Sailor s order by s.name")
 		.list();
 		
 	}
@@ -88,23 +84,19 @@ public class SailorServiceImpl implements SailorService {
 
 	@SuppressWarnings("unchecked")
 	@Override
-	public List<Sailor> findSailors(Vessel vessel, Integer start, Integer rows) {
-		if(vessel == null || vessel.getId() == null) return new ArrayList<Sailor>();
-		if(start == null || start < 0) start = 0;
-		if(rows == null || rows < 0) rows = 20;
+	public List<Sailor> findSailors(String name) {
+		if(!StringUtils.hasLength(name)) return new ArrayList<Sailor>();
 		
-		return sessionFactory.getCurrentSession().createQuery("from Sailor s where s.vessel.id = :vessel order by s.firstName")
-		.setLong("vessel", vessel.getId())
-		.setFirstResult(start)
-		.setMaxResults(rows)
+		return sessionFactory.getCurrentSession().createQuery("from Sailor s where lower(s.name) like = :name order by s.name")
+		.setString("name", "%"+name.toLowerCase()+"%")
 		.list();
 	}
 
 	@Override
-	public Long countSailors(Vessel vessel) {
-		if(vessel == null || vessel.getId() == null) return 0L;
-		return (Long) sessionFactory.getCurrentSession().createQuery("select count(s) from Sailor s where s.vessel.id = :vessel")
-		.setLong("vessel", vessel.getId()).uniqueResult();
+	public Long countSailors(String name) {
+		if(!StringUtils.hasText(name)) return 0L;
+		return (Long) sessionFactory.getCurrentSession().createQuery("select count(s) from Sailor s where s.name like :name")
+		.setString("name", "%"+name+"%").uniqueResult();
 	}
 
 }
