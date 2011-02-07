@@ -17,3 +17,6 @@ target
 build
 dist
 private
+
+# Upload result
+sailorman-ui.web/src/main/webapp/uploads/*
