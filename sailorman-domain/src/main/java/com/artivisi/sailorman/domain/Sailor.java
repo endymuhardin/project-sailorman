@@ -60,6 +60,7 @@ public class Sailor {
 	@Column(name="seaman_book_issue_place")
 	private String seamanBookIssuePlace;
 	
+	
 	private BigDecimal height;
 	private BigDecimal weight;
 	private BigDecimal cloth;

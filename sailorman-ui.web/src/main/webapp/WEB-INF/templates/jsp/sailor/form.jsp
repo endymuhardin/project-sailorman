@@ -13,7 +13,7 @@
 <h2 class="title"><a href="#">Edit Sailor</a></h2>
 <div class="entry">
 
-<form:form modelAttribute="sailor" method="post">
+<form:form modelAttribute="sailor" method="post" enctype="multipart/form-data">
 <table>
   <tr>
     <td><form:label	for="name" path="name" cssErrorClass="error">Name</form:label></td>
@@ -106,7 +106,7 @@
     <td><form:errors path="glove" /></td>
   </tr>
   <tr>
-    <td><form:label	for="shoe" path="shoe" cssErrorClass="error">shoe</form:label></td>
+    <td><form:label	for="shoe" path="shoe" cssErrorClass="error">Shoe</form:label></td>
     <td><form:input path="shoe" /></td>
     <td><form:errors path="shoe" /></td>
   </tr>
@@ -114,6 +114,11 @@
     <td><form:label	for="smoking" path="smoking" cssErrorClass="error">Smoking</form:label></td>
     <td><form:checkbox path="smoking" /></td>
     <td><form:errors path="smoking" /></td>
+  </tr>
+  <tr>
+    <td>Photo</td>
+    <td><input type="file" name="photofile"></td>
+    <td>&nbsp;</td>
   </tr>
   <tr>
     <td>&nbsp;</td>

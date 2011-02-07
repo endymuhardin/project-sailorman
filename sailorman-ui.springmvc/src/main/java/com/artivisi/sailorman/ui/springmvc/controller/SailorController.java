@@ -1,11 +1,15 @@
 package com.artivisi.sailorman.ui.springmvc.controller;
 
+import java.io.File;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.beans.support.PagedListHolder;
@@ -20,6 +24,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.support.SessionStatus;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.artivisi.sailorman.domain.Sailor;
 import com.artivisi.sailorman.service.SailorService;
@@ -27,6 +32,10 @@ import com.artivisi.sailorman.service.SailorService;
 @Controller
 @RequestMapping("/sailor")
 public class SailorController {
+	
+	private String uploadDestination = "uploads/";
+	
+	private Logger logger = LoggerFactory.getLogger(this.getClass());
 	
 	@Autowired private SailorService sailorService;
 	
@@ -71,12 +80,35 @@ public class SailorController {
 	}
 	
 	@RequestMapping(value="/form", method=RequestMethod.POST)
-	public String processForm(@ModelAttribute @Valid Sailor sailor, BindingResult errors, SessionStatus status){
+	public String processForm(HttpServletRequest request, @ModelAttribute @Valid Sailor sailor, BindingResult errors, SessionStatus status, @RequestParam("photofile") MultipartFile file) throws Exception{
 		if(errors.hasErrors()) {
 			return "sailor/form";
 		}
 		
+		String originalFilename = file.getOriginalFilename();
+		
+		if(logger.isDebugEnabled()){
+			logger.debug("Original file name : {}", originalFilename);
+		}
+		int dot = originalFilename.lastIndexOf('.');
+		String extension = originalFilename.substring(dot + 1);
+		if(logger.isDebugEnabled()){
+			logger.debug("Extension : {}", extension);
+		}
+		
 		sailorService.save(sailor);
+		
+		String realPath = request.getSession().getServletContext().getRealPath(uploadDestination);
+		if(logger.isDebugEnabled()){
+			logger.debug("Real path : {}", realPath);
+		}
+		
+		File destination = new File(realPath + "/" +sailor.getId()+"."+extension);
+		file.transferTo(destination);
+		
+		sailor.setPhoto(uploadDestination +sailor.getId()+"."+extension);
+		sailorService.save(sailor);
+		
 		status.setComplete();
 		return "redirect:list";
 	}
