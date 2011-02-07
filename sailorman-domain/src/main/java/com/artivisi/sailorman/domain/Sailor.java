@@ -59,6 +59,17 @@ public class Sailor {
 	private Date seamanBookExpireDate;
 	@Column(name="seaman_book_issue_place")
 	private String seamanBookIssuePlace;
+
+	@Column(name="license_number")
+	private String licenseNumber;
+	@Column(name="license_issue_date")
+	@Temporal(TemporalType.DATE)
+	private Date licenseIssueDate;
+	@Column(name="license_expire_date")
+	@Temporal(TemporalType.DATE)
+	private Date licenseExpireDate;
+	@Column(name="license_issue_place")
+	private String licenseIssuePlace;
 	
 	
 	private BigDecimal height;
@@ -188,6 +199,38 @@ public class Sailor {
 
 	public void setSeamanBookIssuePlace(String seamanBookIssuePlace) {
 		this.seamanBookIssuePlace = seamanBookIssuePlace;
+	}
+
+	public String getLicenseNumber() {
+		return licenseNumber;
+	}
+
+	public void setLicenseNumber(String licenseNumber) {
+		this.licenseNumber = licenseNumber;
+	}
+
+	public Date getLicenseIssueDate() {
+		return licenseIssueDate;
+	}
+
+	public void setLicenseIssueDate(Date licenseIssueDate) {
+		this.licenseIssueDate = licenseIssueDate;
+	}
+
+	public Date getLicenseExpireDate() {
+		return licenseExpireDate;
+	}
+
+	public void setLicenseExpireDate(Date licenseExpireDate) {
+		this.licenseExpireDate = licenseExpireDate;
+	}
+
+	public String getLicenseIssuePlace() {
+		return licenseIssuePlace;
+	}
+
+	public void setLicenseIssuePlace(String licenseIssuePlace) {
+		this.licenseIssuePlace = licenseIssuePlace;
 	}
 
 	public BigDecimal getHeight() {

@@ -18,6 +18,8 @@ jQuery(function(){
 		jQuery('input[name=passportExpireDate]').datepicker(pickerOpts);
 		jQuery('input[name=seamanBookIssueDate]').datepicker(pickerOpts);
 		jQuery('input[name=seamanBookExpireDate]').datepicker(pickerOpts);
+		jQuery('input[name=licenseIssueDate]').datepicker(pickerOpts);
+		jQuery('input[name=licenseExpireDate]').datepicker(pickerOpts);
 });
 </script>
 
@@ -112,6 +114,36 @@ jQuery(function(){
     <td><form:input path="seamanBookIssuePlace" /></td>
     <td><form:errors path="seamanBookIssuePlace" /></td>
   </tr>
+  
+  <tr>
+  	<td colspan="3">License Book Information</td>
+  </tr>
+  
+  <tr>
+    <td><form:label	for="licenseNumber" path="licenseNumber" cssErrorClass="error">License Number</form:label></td>
+    <td><form:input path="licenseNumber" /></td>
+    <td><form:errors path="licenseNumber" /></td>
+  </tr>
+  <tr>
+    <td><form:label	for="licenseIssueDate" path="licenseIssueDate" cssErrorClass="error">License Issue Date</form:label></td>
+    <td><form:input path="licenseIssueDate" /></td>
+    <td><form:errors path="licenseIssueDate" /></td>
+  </tr>
+  <tr>
+    <td><form:label	for="licenseExpireDate" path="licenseExpireDate" cssErrorClass="error">License Expire Date</form:label></td>
+    <td><form:input path="licenseExpireDate" /></td>
+    <td><form:errors path="licenseExpireDate" /></td>
+  </tr>
+  <tr>
+    <td><form:label	for="licenseIssuePlace" path="licenseIssuePlace" cssErrorClass="error">License Issue Place</form:label></td>
+    <td><form:input path="licenseIssuePlace" /></td>
+    <td><form:errors path="licenseIssuePlace" /></td>
+  </tr>
+  
+  <tr>
+  	<td colspan="3">Physical Information</td>
+  </tr>
+  
   <tr>
     <td><form:label	for="height" path="height" cssErrorClass="error">Height</form:label></td>
     <td><form:input path="height" /></td>

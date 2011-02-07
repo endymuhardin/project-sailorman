@@ -94,12 +94,41 @@
   <tr>
     <td>Seaman Book Issue Date</td>
     <td>:</td>
-    <td><c:out value="${sailor.seamanBookIssueDate}" /></td>
+    <td><fmt:formatDate value="${sailor.seamanBookIssueDate}" type="date" dateStyle="medium"/></td>
   </tr>
   <tr>
     <td>Seaman Book Expire Date</td>
     <td>:</td>
-    <td><c:out value="${sailor.seamanBookExpireDate}" /></td>
+    <td><fmt:formatDate value="${sailor.seamanBookExpireDate}" type="date" dateStyle="medium"/></td>
+  </tr>
+  
+  <tr>
+  	<td colspan="3"><b>License Information</b></td>
+  </tr>
+  <tr>
+    <td>License Number</td>
+    <td>:</td>
+    <td><c:out value="${sailor.licenseNumber}" /></td>
+  </tr>
+  <tr>
+    <td>License Issue Place</td>
+    <td>:</td>
+    <td><c:out value="${sailor.licenseIssuePlace}" /></td>
+  </tr>
+  <tr>
+    <td>License Issue Date</td>
+    <td>:</td>
+    <td><fmt:formatDate value="${sailor.licenseIssueDate}" type="date" dateStyle="medium"/></td>
+  </tr>
+  <tr>
+    <td>License Expire Date</td>
+    <td>:</td>
+    <td><fmt:formatDate value="${sailor.licenseExpireDate}" type="date" dateStyle="medium"/></td>
+  </tr>
+  
+  
+  <tr>
+  	<td colspan="3"><b>Physical Information</b></td>
   </tr>
   
   <tr>
