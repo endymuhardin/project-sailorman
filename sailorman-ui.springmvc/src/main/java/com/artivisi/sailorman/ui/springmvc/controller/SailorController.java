@@ -69,6 +69,14 @@ public class SailorController {
 		return new ModelMap("sailorList", sailorList);
 	}
 	
+	@RequestMapping("/view")
+	public ModelMap view(@RequestParam Long id){
+		Sailor sailor = sailorService.findSailor(id);
+		if(sailor == null) {
+			return new ModelMap();
+		}
+		return new ModelMap(sailor);
+	}
 	
 	@RequestMapping(value="/form", method=RequestMethod.GET)
 	public ModelMap displayForm(@RequestParam(value="id", required=false)Long id){

@@ -45,6 +45,11 @@
     <td><form:input path="religion" /></td>
     <td><form:errors path="religion" /></td>
   </tr>  
+  
+  <tr>
+  	<td colspan="3">Passport Information</td>
+  </tr>
+  
   <tr>
     <td><form:label	for="passportNumber" path="birthdate" cssErrorClass="error">Passport Number</form:label></td>
     <td><form:input path="passportNumber" /></td>
@@ -65,6 +70,11 @@
     <td><form:input path="passportIssuePlace" /></td>
     <td><form:errors path="passportIssuePlace" /></td>
   </tr>
+  
+  <tr>
+  	<td colspan="3">Seaman Book Information</td>
+  </tr>
+  
   <tr>
     <td><form:label	for="seamanBookNumber" path="seamanBookNumber" cssErrorClass="error">Seaman Book Number</form:label></td>
     <td><form:input path="seamanBookNumber" /></td>
