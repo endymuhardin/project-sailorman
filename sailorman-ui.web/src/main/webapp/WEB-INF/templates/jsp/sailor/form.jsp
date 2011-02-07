@@ -4,6 +4,23 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Edit Sailor</title>
+
+
+<script type="text/javascript">
+jQuery(function(){
+		// datepicker
+        var pickerOpts = {
+            dateFormat: "yy-mm-dd"
+        };
+		
+		jQuery('input[name=birthdate]').datepicker(pickerOpts);
+		jQuery('input[name=passportIssueDate]').datepicker(pickerOpts);
+		jQuery('input[name=passportExpireDate]').datepicker(pickerOpts);
+		jQuery('input[name=seamanBookIssueDate]').datepicker(pickerOpts);
+		jQuery('input[name=seamanBookExpireDate]').datepicker(pickerOpts);
+});
+</script>
+
 </head>
 <body>
 

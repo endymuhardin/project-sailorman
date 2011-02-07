@@ -18,6 +18,11 @@ Released   : 20090523
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
 <title><decorator:title></decorator:title></title>
 <link href="<%=request.getContextPath()%>/resources/css/style.css" rel="stylesheet" type="text/css" media="screen" />
+<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/jquery-1.4.4.min.js"></script>
+        
+<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/jquery-ui-1.8.9.custom.min.js"></script>
+<link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/ui-lightness/jquery-ui-1.8.9.custom.css" type="text/css" />
+
 
 <decorator:head></decorator:head>
 
