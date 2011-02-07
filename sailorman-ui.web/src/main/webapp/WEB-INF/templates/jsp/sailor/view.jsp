@@ -37,7 +37,7 @@
   <tr>
     <td>Birthdate</td>
     <td>:</td>
-    <td><c:out value="${sailor.birthdate}" /></td>
+    <td><fmt:formatDate value="${sailor.birthdate}"  type="date" dateStyle="medium" /></td>
   </tr>
   <tr>
     <td>Phone</td>
@@ -55,7 +55,7 @@
     <td><c:out value="${sailor.religion}" /></td>
   </tr>
   <tr>
-  	<td colspan="3">Passport Information</td>
+  	<td colspan="3"><b>Passport Information</b></td>
   </tr>
   <tr>
     <td>Passport Number</td>
@@ -70,16 +70,16 @@
   <tr>
     <td>Passport Issue Date</td>
     <td>:</td>
-    <td><c:out value="${sailor.passportIssueDate}" /></td>
+    <td><fmt:formatDate value="${sailor.passportIssueDate}" type="date" dateStyle="medium" /></td>
   </tr>
   <tr>
     <td>Passport Expire Date</td>
     <td>:</td>
-    <td><c:out value="${sailor.passportExpireDate}" /></td>
+    <td><fmt:formatDate value="${sailor.passportExpireDate}" type="date" dateStyle="medium" /></td>
   </tr>
   
   <tr>
-  	<td colspan="3">Seaman Book Information</td>
+  	<td colspan="3"><b>Seaman Book Information</b></td>
   </tr>
   <tr>
     <td>Seaman Book Number</td>
