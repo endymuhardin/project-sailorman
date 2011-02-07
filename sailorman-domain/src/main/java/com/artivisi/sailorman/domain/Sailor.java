@@ -74,8 +74,8 @@ public class Sailor {
 	
 	private BigDecimal height;
 	private BigDecimal weight;
-	private BigDecimal cloth;
-	private BigDecimal glove;
+	private String cloth;
+	private String glove;
 	private BigDecimal shoe;
 	private Boolean smoking;
 	
@@ -249,19 +249,19 @@ public class Sailor {
 		this.weight = weight;
 	}
 
-	public BigDecimal getCloth() {
+	public String getCloth() {
 		return cloth;
 	}
 
-	public void setCloth(BigDecimal cloth) {
+	public void setCloth(String cloth) {
 		this.cloth = cloth;
 	}
 
-	public BigDecimal getGlove() {
+	public String getGlove() {
 		return glove;
 	}
 
-	public void setGlove(BigDecimal glove) {
+	public void setGlove(String glove) {
 		this.glove = glove;
 	}
 
