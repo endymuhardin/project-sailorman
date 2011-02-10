@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Sailor Database Application</title>
+<title>Employee Database Application</title>
 </head>
 <body>
 
@@ -17,7 +17,7 @@
 					<ul>
 						<li><a href="country/list">Country</a></li>
 						<li><a href="vessel/list">Vessel</a></li>
-						<li><a href="sailor/list">Sailor</a></li>
+						<li><a href="sailor/list">Employee</a></li>
 					</ul>
 
 </div>

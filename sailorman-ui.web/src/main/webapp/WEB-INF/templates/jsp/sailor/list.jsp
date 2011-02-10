@@ -3,15 +3,15 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Sailor List</title>
+<title>Employee List</title>
 </head>
 <body>
 
 <div class="post">
 <div class="post-bgtop">
 <div class="post-bgbtm">
-<h2 class="title"><a href="#">Sailor List</a></h2>
-<div class="entry"><a href="form">Add New Sailor</a><br>
+<h2 class="title"><a href="#">Employee List</a></h2>
+<div class="entry"><a href="form">Add New Employee</a><br>
 
  
 <form action="">Search by name : 

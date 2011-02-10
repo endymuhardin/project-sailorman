@@ -3,7 +3,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Edit Sailor</title>
+<title>Edit Employee</title>
 
 
 <script type="text/javascript">
@@ -29,7 +29,7 @@ jQuery(function(){
 <div class="post">
 <div class="post-bgtop">
 <div class="post-bgbtm">
-<h2 class="title"><a href="#">Edit Sailor</a></h2>
+<h2 class="title"><a href="#">Edit Employee</a></h2>
 <div class="entry">
 
 <form:form modelAttribute="sailor" method="post" enctype="multipart/form-data">

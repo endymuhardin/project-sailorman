@@ -31,8 +31,8 @@ Released   : 20090523
 <div id="wrapper">
 	<div id="header">
 		<div id="logo">
-			<h1><a href="#">Sailor Database</a></h1>
-			<p>Application for managing sailors</p>
+			<h1><a href="#">Employee Database</a></h1>
+			<p>Application for managing employees</p>
 		</div>
 	</div>
 	<!-- end #header -->
@@ -58,7 +58,7 @@ Released   : 20090523
 					<ul>
 						<li><a href="<%=request.getContextPath()%>/country/list">Country</a><span>Manage Country List</span></li>
 						<li><a href="<%=request.getContextPath()%>/vessel/list">Vessel</a><span>Manage Vessel List</span></li>
-						<li><a href="<%=request.getContextPath()%>/sailor/list">Sailor</a><span>Manage Sailor List</span></li>
+						<li><a href="<%=request.getContextPath()%>/sailor/list">Employee</a><span>Manage Employee List</span></li>
 					</ul>
 				</li>
 			</ul>

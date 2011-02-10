@@ -3,7 +3,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Sailor Info</title>
+<title>Employee Info</title>
 </head>
 <body>
 
@@ -11,7 +11,7 @@
 <div class="post-bgtop">
 <div class="post-bgbtm">
 
-<h2 class="title"><a href="#">Sailor Information</a></h2>
+<h2 class="title"><a href="#">Employee Information</a></h2>
 <div class="entry">
 
 <table width="100%">
