@@ -27,12 +27,15 @@ import org.springframework.web.bind.support.SessionStatus;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.artivisi.sailorman.domain.Sailor;
+import com.artivisi.sailorman.domain.Sailor.Status;
 import com.artivisi.sailorman.service.SailorService;
 
 @Controller
 @RequestMapping("/sailor")
 public class SailorController {
 	
+	private static final String SESSION_KEY_SAILOR_LIST = "sailorList";
+
 	private String uploadDestination = "uploads/";
 	
 	private Logger logger = LoggerFactory.getLogger(this.getClass());
@@ -45,17 +48,17 @@ public class SailorController {
 	}
 	
 	@SuppressWarnings("unchecked")
-	@RequestMapping("/list")
+	@RequestMapping(value="/list")
 	public ModelMap list(@RequestParam(value="name", required=false)String name, 
 			@RequestParam(value="page", required=false)String page, 
 			HttpSession session){
 		if (StringUtils.hasText(name)) {
 	        PagedListHolder<Sailor> sailorList = new PagedListHolder<Sailor>(sailorService.findSailors(name));
-	        session.setAttribute("sailorList", sailorList);
-	        return new ModelMap("sailorList", sailorList);
+	        session.setAttribute(SESSION_KEY_SAILOR_LIST, sailorList);
+	        return new ModelMap(SESSION_KEY_SAILOR_LIST, sailorList);
 	    }
 	    else {
-	        PagedListHolder<Sailor> sailorList = (PagedListHolder<Sailor>) session.getAttribute("sailorList");
+	        PagedListHolder<Sailor> sailorList = (PagedListHolder<Sailor>) session.getAttribute(SESSION_KEY_SAILOR_LIST);
 	        if (sailorList == null) {
 	            return new ModelMap();
 	        }
@@ -65,16 +68,17 @@ public class SailorController {
 	        else if ("previous".equals(page)) {
 	            sailorList.previousPage();
 	        }
-	        return new ModelMap("sailorList", sailorList);
+	        return new ModelMap(SESSION_KEY_SAILOR_LIST, sailorList);
 	    }
 	}
 
 	@RequestMapping("/delete")
-	public String delete(@RequestParam Long id){
+	public String delete(@RequestParam Long id, HttpSession session){
 		Sailor sailor = sailorService.findSailor(id);
 		if(sailor != null) {
 			sailorService.delete(sailor);
 		}
+		session.removeAttribute(SESSION_KEY_SAILOR_LIST);
 		return "redirect:list";
 	}
 	
