@@ -18,6 +18,7 @@ public interface SailorService {
 	public List<Vessel> findVessels(Country country);
 	
 	public void save(Sailor sailor);
+	public void delete(Sailor sailor);
 	public Sailor findSailor(Long id);
 	public List<Sailor> findSailors();
 	public Long countSailors();

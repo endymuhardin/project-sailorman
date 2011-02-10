@@ -68,6 +68,15 @@ public class SailorController {
 	        return new ModelMap("sailorList", sailorList);
 	    }
 	}
+
+	@RequestMapping("/delete")
+	public String delete(@RequestParam Long id){
+		Sailor sailor = sailorService.findSailor(id);
+		if(sailor != null) {
+			sailorService.delete(sailor);
+		}
+		return "redirect:list";
+	}
 	
 	@RequestMapping("/view")
 	public ModelMap view(@RequestParam Long id){

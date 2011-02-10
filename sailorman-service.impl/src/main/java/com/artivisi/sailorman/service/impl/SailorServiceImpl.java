@@ -72,6 +72,18 @@ public class SailorServiceImpl implements SailorService {
 	}
 
 	@Override
+	public void delete(Sailor sailor) {
+		if(sailor == null || sailor.getId() == null) return;
+		List<Assignment> assignments = findAssignment(sailor);
+		for (Assignment assignment : assignments) {
+			delete(assignment);
+		}
+		
+		sessionFactory.getCurrentSession()
+		.delete(sailor);
+	}
+
+	@Override
 	public Sailor findSailor(Long id) {
 		if(id == null) return null;
 		return (Sailor) sessionFactory.getCurrentSession().get(Sailor.class, id);
