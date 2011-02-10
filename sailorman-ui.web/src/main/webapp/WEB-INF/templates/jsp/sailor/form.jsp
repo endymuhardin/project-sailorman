@@ -175,6 +175,11 @@ jQuery(function(){
     <td><form:errors path="smoking" /></td>
   </tr>
   <tr>
+    <td><form:label	for="newSalary" path="newSalary" cssErrorClass="error">New Salary</form:label></td>
+    <td><form:input path="newSalary" /></td>
+    <td><form:errors path="newSalary" /></td>
+  </tr>
+  <tr>
     <td>Photo</td>
     <td><input type="file" name="photofile"></td>
     <td>&nbsp;</td>

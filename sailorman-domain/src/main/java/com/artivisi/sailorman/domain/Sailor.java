@@ -79,6 +79,7 @@ public class Sailor {
 	private BigDecimal shoe;
 	private Boolean smoking;
 	
+	@Column(name="new_salary")
 	private BigDecimal newSalary;
 	
 	private String photo;

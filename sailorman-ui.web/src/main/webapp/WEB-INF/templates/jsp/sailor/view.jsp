@@ -159,6 +159,11 @@
     <td>:</td>
     <td><c:out value="${sailor.smoking}" /></td>
   </tr>
+  <tr>
+    <td>New Salary</td>
+    <td>:</td>
+    <td><c:out value="${sailor.newSalary}" /></td>
+  </tr>
 </table>
 
 </div>
