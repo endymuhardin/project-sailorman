@@ -79,6 +79,8 @@ public class Sailor {
 	private BigDecimal shoe;
 	private Boolean smoking;
 	
+	private BigDecimal newSalary;
+	
 	private String photo;
 
 	public Long getId() {
@@ -95,6 +97,14 @@ public class Sailor {
 
 	public void setName(String name) {
 		this.name = name;
+	}
+
+	public BigDecimal getNewSalary() {
+		return newSalary;
+	}
+
+	public void setNewSalary(BigDecimal newSalary) {
+		this.newSalary = newSalary;
 	}
 
 	public Date getBirthdate() {

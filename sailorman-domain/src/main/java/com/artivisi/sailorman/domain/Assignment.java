@@ -47,7 +47,7 @@ public class Assignment {
 	private Date signoff;
 	private String term;
 	private BigDecimal salary;
-	private BigDecimal bonus;
+	private String bonus;
 	public Long getId() {
 		return id;
 	}
@@ -120,10 +120,10 @@ public class Assignment {
 	public void setSalary(BigDecimal salary) {
 		this.salary = salary;
 	}
-	public BigDecimal getBonus() {
+	public String getBonus() {
 		return bonus;
 	}
-	public void setBonus(BigDecimal bonus) {
+	public void setBonus(String bonus) {
 		this.bonus = bonus;
 	}
 	
