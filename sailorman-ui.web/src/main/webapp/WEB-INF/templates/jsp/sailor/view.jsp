@@ -14,226 +14,191 @@
 <h2 class="title"><a href="#">Employee Information</a></h2>
 <div class="entry">
 
-<table width="100%">
-	<tr>
-  	<td colspan="3"><b>Personal Information</b></td>
-  </tr>
-  <tr>
-    <td valign="top" colspan="2">&nbsp;</td>
-    <td> <img src="../<c:out value="${sailor.photo}" />" height="100px"></td>
-  </tr>
-  <tr>
-    <td>Name</td>
-    <td>:</td>
-    <td><c:out value="${sailor.name}" /></td>
-  </tr>
-  <tr>
-    <td>Birthplace</td>
-    <td>:</td>
-    <td><c:out value="${sailor.birthplace}" /></td>
-  </tr>
-  <tr>
-    <td>Birthdate</td>
-    <td>:</td>
-    <td><fmt:formatDate value="${sailor.birthdate}"  type="date" dateStyle="medium" /></td>
-  </tr>
-  <tr>
-    <td>Phone</td>
-    <td>:</td>
-    <td><c:out value="${sailor.phone}" /></td>
-  </tr>
-  <tr>
-    <td>Children</td>
-    <td>:</td>
-    <td><c:out value="${sailor.children}" /></td>
-  </tr>
-  <tr>
-    <td>Religion</td>
-    <td>:</td>
-    <td><c:out value="${sailor.religion}" /></td>
-  </tr>
-  <tr>
-    <td>Status</td>
-    <td>:</td>
-    <td><c:out value="${sailor.employmentStatus}" /></td>
-  </tr>
-  <tr>
-  	<td colspan="3"><b>Passport Information</b></td>
-  </tr>
-  <tr>
-    <td>Passport Number</td>
-    <td>:</td>
-    <td><c:out value="${sailor.passportNumber}" /></td>
-  </tr>
-  <tr>
-    <td>Passport Issue Place</td>
-    <td>:</td>
-    <td><c:out value="${sailor.passportIssuePlace}" /></td>
-  </tr>
-  <tr>
-    <td>Passport Issue Date</td>
-    <td>:</td>
-    <td><fmt:formatDate value="${sailor.passportIssueDate}" type="date" dateStyle="medium" /></td>
-  </tr>
-  <tr>
-    <td>Passport Expire Date</td>
-    <td>:</td>
-    <td><fmt:formatDate value="${sailor.passportExpireDate}" type="date" dateStyle="medium" /></td>
-  </tr>
-  
-  <tr>
-  	<td colspan="3"><b>Seaman Book Information</b></td>
-  </tr>
-  <tr>
-    <td>Seaman Book Number</td>
-    <td>:</td>
-    <td><c:out value="${sailor.seamanBookNumber}" /></td>
-  </tr>
-  <tr>
-    <td>Seaman Book Issue Place</td>
-    <td>:</td>
-    <td><c:out value="${sailor.seamanBookIssuePlace}" /></td>
-  </tr>
-  <tr>
-    <td>Seaman Book Issue Date</td>
-    <td>:</td>
-    <td><fmt:formatDate value="${sailor.seamanBookIssueDate}" type="date" dateStyle="medium"/></td>
-  </tr>
-  <tr>
-    <td>Seaman Book Expire Date</td>
-    <td>:</td>
-    <td><fmt:formatDate value="${sailor.seamanBookExpireDate}" type="date" dateStyle="medium"/></td>
-  </tr>
-  
-  <tr>
-  	<td colspan="3"><b>License Information</b></td>
-  </tr>
-  <tr>
-    <td>License Number</td>
-    <td>:</td>
-    <td><c:out value="${sailor.licenseNumber}" /></td>
-  </tr>
-  <tr>
-    <td>License Issue Place</td>
-    <td>:</td>
-    <td><c:out value="${sailor.licenseIssuePlace}" /></td>
-  </tr>
-  <tr>
-    <td>License Issue Date</td>
-    <td>:</td>
-    <td><fmt:formatDate value="${sailor.licenseIssueDate}" type="date" dateStyle="medium"/></td>
-  </tr>
-  <tr>
-    <td>License Expire Date</td>
-    <td>:</td>
-    <td><fmt:formatDate value="${sailor.licenseExpireDate}" type="date" dateStyle="medium"/></td>
-  </tr>
-  
-  
-  <tr>
-  	<td colspan="3"><b>Physical Information</b></td>
-  </tr>
-  
-  <tr>
-    <td>Height</td>
-    <td>:</td>
-    <td><c:out value="${sailor.height}" /></td>
-  </tr>
-  <tr>
-    <td>Weight</td>
-    <td>:</td>
-    <td><c:out value="${sailor.weight}" /></td>
-  </tr>
-  <tr>
-    <td>Cloth</td>
-    <td>:</td>
-    <td><c:out value="${sailor.cloth}" /></td>
-  </tr>
-  <tr>
-    <td>Glove</td>
-    <td>:</td>
-    <td><c:out value="${sailor.glove}" /></td>
-  </tr>
-  <tr>
-    <td>Shoe</td>
-    <td>:</td>
-    <td><c:out value="${sailor.shoe}" /></td>
-  </tr>
-  <tr>
-    <td>Smoking</td>
-    <td>:</td>
-    <td><c:out value="${sailor.smoking}" /></td>
-  </tr>
-  <tr>
-    <td>New Salary</td>
-    <td>:</td>
-    <td><c:out value="${sailor.newSalary}" /></td>
-  </tr>
+
+
+<table width="100%" border="1">
+	<thead>
+		<tr>
+			<th>Name</th>
+			<th>Date of Birth</th>
+			<th>Birth Place</th>
+			<th>Phone Number</th>
+			<th>Anak</th>
+			<th>Religion</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>${sailor.name}</td>
+			<td><fmt:formatDate value="${sailor.birthdate}"  type="date" dateStyle="medium" /></td>
+			<td>${sailor.birthplace}</td>
+			<td>${sailor.phone}</td>
+			<td>${sailor.children}</td>
+			<td>${sailor.religion}</td>
+		</tr>
+	</tbody>
 </table>
 
-</div>
+<br>
 
-<h2 class="title"><a href="#">Assignment</a></h2>
 
+
+<table width="100%" border="1">
+	<thead>
+		<tr>
+			<th>Passport</th>
+			<th>Seaman Book</th>
+			<th>&nbsp;</th>
+			<th>Lysence</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>
+				<table>
+					<tr>
+						<td>Number</td>
+						<td>${sailor.passportNumber}</td>
+					</tr>
+					<tr>
+						<td>Issue Date</td>
+						<td><fmt:formatDate value="${sailor.passportIssueDate}"  type="date" dateStyle="medium" /></td>
+					</tr>
+					<tr>
+						<td>Valid Until</td>
+						<td><fmt:formatDate value="${sailor.passportExpireDate}"  type="date" dateStyle="medium" /></td>
+					</tr>
+					<tr>
+						<td>Issue Place</td>
+						<td>${sailor.passportIssuePlace}</td>
+					</tr>
+				</table>
+			</td>
+			<td>
+				<table>
+					<tr>
+						<td>Number</td>
+						<td>${sailor.seamanBookNumber}</td>
+					</tr>
+					<tr>
+						<td>Issue Date</td>
+						<td><fmt:formatDate value="${sailor.seamanBookIssueDate}"  type="date" dateStyle="medium" /></td>
+					</tr>
+					<tr>
+						<td>Valid Until</td>
+						<td><fmt:formatDate value="${sailor.seamanBookExpireDate}"  type="date" dateStyle="medium" /></td>
+					</tr>
+					<tr>
+						<td>Issue Place</td>
+						<td>${sailor.seamanBookIssuePlace}</td>
+					</tr>
+				</table>
+			</td>
+			<td>
+				<table>
+					<tr>
+						<td>Number</td>
+						<td>${sailor.licenseNumber}</td>
+					</tr>
+					<tr>
+						<td>Issue Date</td>
+						<td><fmt:formatDate value="${sailor.licenseIssueDate}"  type="date" dateStyle="medium" /></td>
+					</tr>
+					<tr>
+						<td>Valid Until</td>
+						<td><fmt:formatDate value="${sailor.licenseExpireDate}"  type="date" dateStyle="medium" /></td>
+					</tr>
+					<tr>
+						<td>Issue Place</td>
+						<td>${sailor.licenseIssuePlace}</td>
+					</tr>
+				</table>
+			</td>
+			<td>&nbsp;</td>
+		</tr>
+	</tbody>
+</table>
+
+
+<br>
 <a href="<c:url value="../assignment/form"><c:param name="sailor" value="${sailor.id}"/></c:url>">
 					Add Assignment
 				</a>
 
-<div class="entry">
-
+<br>
+<c:if test="${not empty assignmentList}">
+<table width="100%" border="1">
+	<thead>
+		<tr>
+			<th>Vessel Name</th>
+			<th>GT</th>
+			<th>Type</th>
+			<th>Flag</th>
+			<th>Rank</th>
+			<th>Fishing Area</th>
+			<th>Sign-on Date</th>
+			<th>Sign-off Date</th>
+			<th>Term</th>
+			<th>Salary</th>
+			<th>Bonus</th>
+			<th>&nbsp;</th>
+		</tr>
+	</thead>
+	<tbody>
 	<c:forEach var="assignment" items="${assignmentList}">
-<table width="100%">
-	<tr>
-    <td>GT</td>
-    <td><c:out value="${assignment.assignmentGt}" /></td>
-  </tr>
-  <tr>
-    <td>Type</td>
-    <td><c:out value="${assignment.type}" /></td>
-  </tr>
-  <tr>
-    <td>Flag</td>
-    <td><c:out value="${assignment.flag}" /></td>
-  </tr>
-  <tr>
-    <td>Rank</td>
-    <td><c:out value="${assignment.rank}" /></td>
-  </tr>
-  <tr>
-    <td>Fishing Area</td>
-    <td><c:out value="${assignment.fishingArea}" /></td>
-  </tr>
-  <tr>
-    <td>Sign On Date</td>
-    <td><fmt:formatDate value="${assignment.signon}" type="date" dateStyle="medium"/></td>
-  </tr>
-  <tr>
-    <td>Sign Off Date</td>
-    <td><fmt:formatDate value="${assignment.signoff}" type="date" dateStyle="medium"/></td>
-  </tr>
-  <tr>
-    <td>Term</td>
-    <td><c:out value="${assignment.term}" /></td>
-  </tr>
-  <tr>
-    <td>Salary</td>
-    <td><c:out value="${assignment.salary}" /></td>
-  </tr>
-  <tr>
-    <td>Bonus</td>
-    <td><c:out value="${assignment.bonus}" /></td>
-  </tr>
-  <tr>
-    <td><a href="<c:url value="../assignment/delete"><c:param name="id" value="${assignment.id}"/></c:url>">
-					Delete Assignment
+		<tr>
+			<td>${assignment.vessel.code} - ${assignment.vessel.name}</td>
+			<td>${assignment.assignmentGt}</td>
+			<td>${assignment.type}</td>
+			<td>${assignment.flag}</td>
+			<td>${assignment.rank}</td>
+			<td>${assignment.fishingArea}</td>
+			<td><fmt:formatDate value="${assignment.signon}"  type="date" dateStyle="medium" /></td>
+			<td><fmt:formatDate value="${assignment.signoff}"  type="date" dateStyle="medium" /></td>
+			<td>${assignment.term}</td>
+			<td>${assignment.salary}</td>
+			<td>${assignment.bonus}</td>
+			<td><a href="<c:url value="../assignment/delete"><c:param name="id" value="${assignment.id}"/></c:url>">
+					delete
 				</a>
-		</td>
-    <td>&nbsp;</td>
-  </tr>
-</table>
-<br><br>
+			</td>
+		</tr>
 	</c:forEach>
+	</tbody>
+</table>
+</c:if>
+
+<br>
+<br>
+
+<table width="100%" border="1">
+	<thead>
+		<tr>
+			<th>Height</th>
+			<th>Weight</th>
+			<th>Cloth</th>
+			<th>Glove</th>
+			<th>Shoe Size</th>
+			<th>Smoking</th>
+			<th>New Salary</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>${sailor.height}</td>
+			<td>${sailor.weight}</td>
+			<td>${sailor.cloth}</td>
+			<td>${sailor.glove}</td>
+			<td>${sailor.shoe}</td>
+			<td>${sailor.smoking ? 'Yes' : 'No'}</td>
+			<td>${sailor.newSalary}</td>
+		</tr>
+	</tbody>
+</table>
+
+
 </div>
+
 
 </div>
 </div>

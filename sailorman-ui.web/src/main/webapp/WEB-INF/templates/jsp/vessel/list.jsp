@@ -23,7 +23,7 @@
 <input type="submit" />
 </form>
 
-
+<c:if test="${not empty vesselList}">
 <table width="100%">
 	<tr>
 		<th>Code</th>
@@ -43,7 +43,7 @@
 		</tr>
 	</c:forEach>
 </table>
-
+</c:if>
 
 </div>
 

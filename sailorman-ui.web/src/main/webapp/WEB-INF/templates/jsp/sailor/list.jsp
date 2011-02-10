@@ -19,20 +19,27 @@
 <input type="submit" />
 </form>
 
-
+<c:if test="${not empty sailorList}">
 <table width="100%">
 	<tr>
 		<th>Name</th>
-		<th>Birth</th>
+		<th>Birthplace</th>
+		<th>Birthdate</th>
 		<th>Phone</th>
+		<th>Passport</th>
+		<th>Valid Until</th>
+		<th>Photo</th>
 		<th>&nbsp;</th>
 	</tr>
 	<c:forEach var="sailor" items="${sailorList.pageList}">
 		<tr>
 			<td><c:out value="${sailor.name}" /></td>
-			<td><c:out value="${sailor.birthplace}" /> - <c:out value="${sailor.birthdate}" /></td>
+			<td><c:out value="${sailor.birthplace}" /></td>
+			<td><fmt:formatDate value="${sailor.birthdate}"  type="date" dateStyle="medium" /></td>
 			<td><c:out value="${sailor.phone}" /></td>
-			<td><c:out value="${sailor.employmentStatus}" /></td>
+			<td><c:out value="${sailor.passportNumber}" /></td>
+			<td><fmt:formatDate value="${sailor.passportExpireDate}"  type="date" dateStyle="medium" /></td>
+			<td><img src="../<c:out value="${sailor.photo}" />" height="50px"></td>
 			<td>
 				<a href="<c:url value="view"><c:param name="id" value="${sailor.id}"/></c:url>">
 					view
@@ -54,6 +61,11 @@
 						approve
 					</a> 
 					</c:when>
+					<c:when test="${'APPROVED' == sailor.employmentStatus}">
+					| <a href="<c:url value="print"><c:param name="id" value="${sailor.id}"/></c:url>">
+						print
+					</a> 
+					</c:when>
 				</c:choose>
 			</td>
 		</tr>
@@ -62,16 +74,15 @@
 	<tr>
 	  <td colspan="4">
 	  <c:if test="${!sailorList.firstPage}">
-	    <a href="?page=previous"><font color="white"><B>&lt;&lt; Prev</B></font></a>
+	    <a href="?page=previous"><B>&lt;&lt; Prev</B></a>
 	  </c:if>
 	  <c:if test="${!sailorList.lastPage}">
-	    <a href="?page=next"><font color="white"><B>Next &gt;&gt;</B></font></a>
+	    <a href="?page=next"><B>Next &gt;&gt;</B></a>
 	  </c:if>
 	  </td>
   	</tr>
-	
 </table>
-
+</c:if>
 
 </div>
 

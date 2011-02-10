@@ -14,7 +14,7 @@
 <div class="entry">
 
 	<a href="form">Add New Country</a>
-
+<c:if test="${not empty countryList}">
 	<table width="100%">
   <tr>
     <th>Code</th>
@@ -33,7 +33,7 @@
   </tr>
   </c:forEach>
 </table>
-
+</c:if>
 
 </div>
 
