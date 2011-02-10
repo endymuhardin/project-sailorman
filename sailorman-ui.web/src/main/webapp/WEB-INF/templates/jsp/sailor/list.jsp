@@ -33,6 +33,9 @@
 			<td><c:out value="${sailor.birthplace}" /> - <c:out value="${sailor.birthdate}" /></td>
 			<td><c:out value="${sailor.phone}" /></td>
 			<td>
+				<a href="<c:url value="../assignment/form"><c:param name="sailor" value="${sailor.id}"/></c:url>">
+					assignment
+				</a> | 
 				<a href="<c:url value="view"><c:param name="id" value="${sailor.id}"/></c:url>">
 					view
 				</a> | 

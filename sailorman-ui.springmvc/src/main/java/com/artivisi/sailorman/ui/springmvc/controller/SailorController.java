@@ -75,7 +75,9 @@ public class SailorController {
 		if(sailor == null) {
 			return new ModelMap();
 		}
-		return new ModelMap(sailor);
+		return new ModelMap()
+		.addAttribute(sailor)
+		.addAttribute(sailorService.findAssignment(sailor));
 	}
 	
 	@RequestMapping(value="/form", method=RequestMethod.GET)

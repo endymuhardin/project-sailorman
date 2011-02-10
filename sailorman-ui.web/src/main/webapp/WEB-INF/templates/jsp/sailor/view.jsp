@@ -11,12 +11,10 @@
 <div class="post-bgtop">
 <div class="post-bgbtm">
 
-
-
 <h2 class="title"><a href="#">Sailor Information</a></h2>
 <div class="entry">
 
-<table>
+<table width="100%">
 	<tr>
   	<td colspan="3"><b>Personal Information</b></td>
   </tr>
@@ -161,10 +159,70 @@
     <td>:</td>
     <td><c:out value="${sailor.smoking}" /></td>
   </tr>
-  
 </table>
 
+</div>
 
+<h2 class="title"><a href="#">Assignment</a></h2>
+
+<a href="<c:url value="../assignment/form"><c:param name="sailor" value="${sailor.id}"/></c:url>">
+					Add Assignment
+				</a>
+
+<div class="entry">
+
+	<c:forEach var="assignment" items="${assignmentList}">
+<table width="100%">
+	<tr>
+    <td>GT</td>
+    <td><c:out value="${assignment.assignmentGt}" /></td>
+  </tr>
+  <tr>
+    <td>Type</td>
+    <td><c:out value="${assignment.type}" /></td>
+  </tr>
+  <tr>
+    <td>Flag</td>
+    <td><c:out value="${assignment.flag}" /></td>
+  </tr>
+  <tr>
+    <td>Rank</td>
+    <td><c:out value="${assignment.rank}" /></td>
+  </tr>
+  <tr>
+    <td>Fishing Area</td>
+    <td><c:out value="${assignment.fishingArea}" /></td>
+  </tr>
+  <tr>
+    <td>Sign On Date</td>
+    <td><fmt:formatDate value="${assignment.signon}" type="date" dateStyle="medium"/></td>
+  </tr>
+  <tr>
+    <td>Sign Off Date</td>
+    <td><fmt:formatDate value="${assignment.signoff}" type="date" dateStyle="medium"/></td>
+  </tr>
+  <tr>
+    <td>Term</td>
+    <td><c:out value="${assignment.term}" /></td>
+  </tr>
+  <tr>
+    <td>Salary</td>
+    <td><c:out value="${assignment.salary}" /></td>
+  </tr>
+  <tr>
+    <td>Bonus</td>
+    <td><c:out value="${assignment.bonus}" /></td>
+  </tr>
+  <tr>
+    <td><a href="<c:url value="../assignment/delete"><c:param name="id" value="${assignment.id}"/></c:url>">
+					Delete Assignment
+				</a>
+		</td>
+    <td>&nbsp;</td>
+  </tr>
+</table>
+<br><br>
+	</c:forEach>
 </div>
 
 </div>

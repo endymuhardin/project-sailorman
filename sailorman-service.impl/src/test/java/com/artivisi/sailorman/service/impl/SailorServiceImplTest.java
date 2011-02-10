@@ -1,6 +1,7 @@
 package com.artivisi.sailorman.service.impl;
 
 import java.sql.Connection;
+import java.sql.SQLException;
 
 import javax.sql.DataSource;
 
@@ -25,6 +26,10 @@ public class SailorServiceImplTest {
 		
 		sailorService = (SailorService) applicationContext.getBean("sailorService");
 
+		//clearDatabase();
+	}
+
+	private static void clearDatabase() throws SQLException {
 		DataSource ds = (DataSource) applicationContext.getBean("dataSource");
 		Connection conn = ds.getConnection();
 		conn.createStatement().executeUpdate("truncate m_sailor");
@@ -38,13 +43,17 @@ public class SailorServiceImplTest {
 		applicationContext.destroy();
 	}
 	
-	@Test
+	//@Test
 	public void testCountry(){
 		Country c = new Country();
 		c.setCode("id");
 		c.setName("Indonesia");
 		
 		sailorService.save(c);
+	}
+	@Test
+	public void testHello(){
+		System.out.println("Hello World");
 	}
 	
 }

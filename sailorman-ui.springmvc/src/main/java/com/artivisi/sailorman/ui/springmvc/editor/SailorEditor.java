@@ -2,22 +2,22 @@ package com.artivisi.sailorman.ui.springmvc.editor;
 
 import java.beans.PropertyEditorSupport;
 
-import com.artivisi.sailorman.domain.Country;
+import com.artivisi.sailorman.domain.Sailor;
 import com.artivisi.sailorman.service.SailorService;
 
-public class CountryEditor extends PropertyEditorSupport {
+public class SailorEditor extends PropertyEditorSupport {
 
 	private SailorService sailorService;
 	
-	public CountryEditor(SailorService sailorService) {
+	public SailorEditor(SailorService sailorService) {
 		this.sailorService = sailorService;
 	}
 
 	@Override
 	public void setAsText(String text) throws IllegalArgumentException {
-		Country country = sailorService.findCountry(Long.valueOf(text));
-		if(country != null) {
-			setValue(country);
+		Sailor s = sailorService.findSailor(Long.valueOf(text));
+		if(s != null) {
+			setValue(s);
 		}
 	}
 
