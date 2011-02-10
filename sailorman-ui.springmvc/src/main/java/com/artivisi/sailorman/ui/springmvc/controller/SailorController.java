@@ -88,6 +88,25 @@ public class SailorController {
 		.addAttribute(sailor)
 		.addAttribute(sailorService.findAssignment(sailor));
 	}
+
+	@RequestMapping("/select")
+	public String select(@RequestParam Long id){
+		Sailor sailor = sailorService.findSailor(id);
+		if(sailor != null) {
+			sailor.setEmploymentStatus(Status.SELECTED);
+			sailorService.save(sailor);
+		}
+		return "redirect:view?id="+id;
+	}
+	@RequestMapping("/approve")
+	public String approve(@RequestParam Long id){
+		Sailor sailor = sailorService.findSailor(id);
+		if(sailor != null) {
+			sailor.setEmploymentStatus(Status.APPROVED);
+			sailorService.save(sailor);
+		}
+		return "redirect:view?id="+id;
+	}
 	
 	@RequestMapping(value="/form", method=RequestMethod.GET)
 	public ModelMap displayForm(@RequestParam(value="id", required=false)Long id){

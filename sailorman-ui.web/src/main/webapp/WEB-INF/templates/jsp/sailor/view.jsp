@@ -53,6 +53,11 @@
     <td><c:out value="${sailor.religion}" /></td>
   </tr>
   <tr>
+    <td>Status</td>
+    <td>:</td>
+    <td><c:out value="${sailor.employmentStatus}" /></td>
+  </tr>
+  <tr>
   	<td colspan="3"><b>Passport Information</b></td>
   </tr>
   <tr>

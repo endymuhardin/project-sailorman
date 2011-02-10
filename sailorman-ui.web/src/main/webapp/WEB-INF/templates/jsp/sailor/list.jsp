@@ -32,10 +32,8 @@
 			<td><c:out value="${sailor.name}" /></td>
 			<td><c:out value="${sailor.birthplace}" /> - <c:out value="${sailor.birthdate}" /></td>
 			<td><c:out value="${sailor.phone}" /></td>
+			<td><c:out value="${sailor.employmentStatus}" /></td>
 			<td>
-				<a href="<c:url value="../assignment/form"><c:param name="sailor" value="${sailor.id}"/></c:url>">
-					assignment
-				</a> | 
 				<a href="<c:url value="view"><c:param name="id" value="${sailor.id}"/></c:url>">
 					view
 				</a> | 
@@ -44,7 +42,19 @@
 				</a> | 
 				<a href="<c:url value="delete"><c:param name="id" value="${sailor.id}"/></c:url>">
 					delete
-				</a> 
+				</a>  
+				<c:choose>
+					<c:when test="${'NEW' == sailor.employmentStatus}">
+					| <a href="<c:url value="select"><c:param name="id" value="${sailor.id}"/></c:url>">
+						select
+					</a> 
+					</c:when>
+					<c:when test="${'SELECTED' == sailor.employmentStatus}">
+					| <a href="<c:url value="approve"><c:param name="id" value="${sailor.id}"/></c:url>">
+						approve
+					</a> 
+					</c:when>
+				</c:choose>
 			</td>
 		</tr>
 	</c:forEach>

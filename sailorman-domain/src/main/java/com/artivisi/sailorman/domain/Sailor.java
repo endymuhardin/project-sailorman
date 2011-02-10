@@ -5,6 +5,8 @@ import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
@@ -16,6 +18,10 @@ import org.hibernate.validator.constraints.NotEmpty;
 
 @Entity @Table(name="m_sailor")
 public class Sailor {
+	
+	public enum Status {
+		NEW,SELECTED,APPROVED
+	}
 	
 	@Id @GeneratedValue
 	private Long id;
@@ -82,6 +88,10 @@ public class Sailor {
 	@Column(name="new_salary")
 	private BigDecimal newSalary;
 	
+	@Column(name="employment_status")
+	@Enumerated(EnumType.STRING)
+	private Status employmentStatus = Status.NEW;
+	
 	private String photo;
 
 	public Long getId() {
@@ -90,6 +100,14 @@ public class Sailor {
 
 	public void setId(Long id) {
 		this.id = id;
+	}
+
+	public Status getEmploymentStatus() {
+		return employmentStatus;
+	}
+
+	public void setEmploymentStatus(Status employmentStatus) {
+		this.employmentStatus = employmentStatus;
 	}
 
 	public String getName() {
