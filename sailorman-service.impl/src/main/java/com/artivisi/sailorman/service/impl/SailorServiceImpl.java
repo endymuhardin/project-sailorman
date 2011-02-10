@@ -95,7 +95,7 @@ public class SailorServiceImpl implements SailorService {
 	public List<Sailor> findSailors(String name) {
 		if(!StringUtils.hasLength(name)) return new ArrayList<Sailor>();
 		
-		return sessionFactory.getCurrentSession().createQuery("from Sailor s where lower(s.name) like = :name order by s.name")
+		return sessionFactory.getCurrentSession().createQuery("from Sailor s where lower(s.name) like :name order by s.name")
 		.setString("name", "%"+name.toLowerCase()+"%")
 		.list();
 	}

@@ -49,24 +49,24 @@ public class SailorController {
 	public ModelMap list(@RequestParam(value="name", required=false)String name, 
 			@RequestParam(value="page", required=false)String page, 
 			HttpSession session){
-		PagedListHolder<Sailor> sailorList = (PagedListHolder<Sailor>) session.getAttribute("sailorList");
-
-		if(!StringUtils.hasText(name)) {
-			sailorList = new PagedListHolder<Sailor>(sailorService.findSailors(name));
-		} else {
-			sailorList = new PagedListHolder<Sailor>(sailorService.findSailors());
-		}
-		
-		if("next".equals(page)) {
-			sailorList.nextPage();
-		}
-		
-		if("previous".equals(page)){
-			sailorList.previousPage();
-		}
-		
-		session.setAttribute("sailorList", sailorList);
-		return new ModelMap("sailorList", sailorList);
+		if (StringUtils.hasText(name)) {
+	        PagedListHolder<Sailor> sailorList = new PagedListHolder<Sailor>(sailorService.findSailors(name));
+	        session.setAttribute("sailorList", sailorList);
+	        return new ModelMap("sailorList", sailorList);
+	    }
+	    else {
+	        PagedListHolder<Sailor> sailorList = (PagedListHolder<Sailor>) session.getAttribute("sailorList");
+	        if (sailorList == null) {
+	            return new ModelMap();
+	        }
+	        if ("next".equals(page)) {
+        		sailorList.nextPage();
+	        }
+	        else if ("previous".equals(page)) {
+	            sailorList.previousPage();
+	        }
+	        return new ModelMap("sailorList", sailorList);
+	    }
 	}
 	
 	@RequestMapping("/view")
