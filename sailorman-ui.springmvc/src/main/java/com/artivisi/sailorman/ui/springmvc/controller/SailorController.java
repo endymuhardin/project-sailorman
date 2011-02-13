@@ -1,6 +1,7 @@
 package com.artivisi.sailorman.ui.springmvc.controller;
 
 import java.io.File;
+import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -34,6 +35,8 @@ import com.artivisi.sailorman.service.SailorService;
 @RequestMapping("/sailor")
 public class SailorController {
 	
+	private static final String SESSION_KEY_EXISTING_PHOTO = "EXISTING_PHOTO";
+
 	private static final String SESSION_KEY_SAILOR_LIST = "sailorList";
 
 	private String uploadDestination = "uploads/";
@@ -113,18 +116,58 @@ public class SailorController {
 	}
 	
 	@RequestMapping(value="/form", method=RequestMethod.GET)
-	public ModelMap displayForm(@RequestParam(value="id", required=false)Long id){
+	public ModelMap displayForm(@RequestParam(value="id", required=false)Long id, HttpSession session){
 		Sailor sailor = sailorService.findSailor(id);
 		if(sailor == null) {
 			sailor = new Sailor();
 		}
+		
+		if(sailor.getId() != null) {
+			// existing sailor, save photo info
+			if(StringUtils.hasText(sailor.getPhoto())){
+				session.setAttribute(SESSION_KEY_EXISTING_PHOTO, sailor.getPhoto()); 
+			}
+		}
+		
 		return new ModelMap(sailor);
 	}
 	
 	@RequestMapping(value="/form", method=RequestMethod.POST)
-	public String processForm(HttpServletRequest request, @ModelAttribute @Valid Sailor sailor, BindingResult errors, SessionStatus status, @RequestParam("photofile") MultipartFile file) throws Exception{
+	public String processForm(HttpSession session, HttpServletRequest request, @ModelAttribute @Valid Sailor sailor, BindingResult errors, SessionStatus status, @RequestParam("photofile") MultipartFile file) throws Exception{
 		if(errors.hasErrors()) {
 			return "sailor/form";
+		}
+		
+		String photo = (String) session.getAttribute(SESSION_KEY_EXISTING_PHOTO);
+		if(StringUtils.hasText(photo)) {
+			sailor.setPhoto(photo);
+		}
+		session.removeAttribute(SESSION_KEY_EXISTING_PHOTO);
+		
+		sailorService.save(sailor);
+		
+		if(file != null && !file.isEmpty()) {
+			setSailorPhoto(request, sailor, file);
+		}
+		
+		status.setComplete();
+		return "redirect:list";
+	}
+
+	private void setSailorPhoto(HttpServletRequest request, Sailor sailor,
+			MultipartFile file) throws IOException {
+		
+		String realPath = request.getSession().getServletContext().getRealPath(uploadDestination);
+		if(logger.isDebugEnabled()){
+			logger.debug("Real path : {}", realPath);
+		}
+		
+		if(StringUtils.hasText(sailor.getPhoto())){
+			// remove existing photo
+			File existing = new File(request.getSession().getServletContext().getRealPath(sailor.getPhoto()));
+			if(existing.exists()) {
+				existing.delete();
+			}
 		}
 		
 		String originalFilename = file.getOriginalFilename();
@@ -133,25 +176,15 @@ public class SailorController {
 			logger.debug("Original file name : {}", originalFilename);
 		}
 		int dot = originalFilename.lastIndexOf('.');
-		String extension = originalFilename.substring(dot + 1);
+		String extension = originalFilename.substring(dot + 1).toLowerCase();
 		if(logger.isDebugEnabled()){
 			logger.debug("Extension : {}", extension);
 		}
 		
-		sailorService.save(sailor);
-		
-		String realPath = request.getSession().getServletContext().getRealPath(uploadDestination);
-		if(logger.isDebugEnabled()){
-			logger.debug("Real path : {}", realPath);
-		}
-		
-		File destination = new File(realPath + "/" +sailor.getId()+"."+extension);
+		File destination = new File(realPath + File.separator +sailor.getId()+"."+extension);
 		file.transferTo(destination);
 		
 		sailor.setPhoto(uploadDestination +sailor.getId()+"."+extension);
 		sailorService.save(sailor);
-		
-		status.setComplete();
-		return "redirect:list";
 	}
 }
