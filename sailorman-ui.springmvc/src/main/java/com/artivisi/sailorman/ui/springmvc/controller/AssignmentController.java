@@ -53,8 +53,8 @@ public class AssignmentController {
 		return "redirect:../sailor/view?id="+ass.getSailor().getId();
 	}
 	
-	@RequestMapping(value="/form", method=RequestMethod.GET)
-	public ModelMap displayForm(@RequestParam Long sailor){
+	@RequestMapping(value="/add", method=RequestMethod.GET)
+	public ModelMap displayAddForm(@RequestParam Long sailor){
 		ModelMap mm = new ModelMap();
 		
 		Sailor s = sailorService.findSailor(sailor);
@@ -71,13 +71,43 @@ public class AssignmentController {
 		return mm;
 	}
 
-	@RequestMapping(value="/form", method=RequestMethod.POST)
-	public String processForm(@ModelAttribute Assignment assignment, BindingResult errors, SessionStatus status){
+	@RequestMapping(value="/add", method=RequestMethod.POST)
+	public String processAddForm(@ModelAttribute Assignment assignment, BindingResult errors, SessionStatus status){
 		if(errors.hasErrors()) {
 			for (ObjectError error : errors.getAllErrors()) {
 				System.out.println(error.getCodes());
 			}
-			return "assignment/form";
+			return "assignment/new";
+		}
+		
+		sailorService.save(assignment);
+		
+		status.setComplete();
+		return "redirect:../sailor/view?id="+assignment.getSailor().getId();
+	}
+	
+	@RequestMapping(value="/edit", method=RequestMethod.GET)
+	public ModelMap displayEditForm(@RequestParam Long id){
+		ModelMap mm = new ModelMap();
+		
+		Assignment ass = sailorService.findAssignment(id);
+		if(ass == null) {
+			mm.addAttribute("error", "Invalid assignment id "+id);
+			return null;
+		}
+		
+		mm.addAttribute("assignment", ass);
+		
+		return mm;
+	}
+
+	@RequestMapping(value="/edit", method=RequestMethod.POST)
+	public String processEditForm(@ModelAttribute Assignment assignment, BindingResult errors, SessionStatus status){
+		if(errors.hasErrors()) {
+			for (ObjectError error : errors.getAllErrors()) {
+				System.out.println(error.getCodes());
+			}
+			return "assignment/new";
 		}
 		
 		sailorService.save(assignment);

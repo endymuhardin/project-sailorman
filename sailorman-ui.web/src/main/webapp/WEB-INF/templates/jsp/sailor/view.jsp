@@ -121,7 +121,7 @@
 
 
 <br>
-<a href="<c:url value="../assignment/form"><c:param name="sailor" value="${sailor.id}"/></c:url>">
+<a href="<c:url value="../assignment/add"><c:param name="sailor" value="${sailor.id}"/></c:url>">
 					Add Assignment
 				</a>
 
@@ -158,7 +158,11 @@
 			<td>${assignment.term}</td>
 			<td>${assignment.salary}</td>
 			<td>${assignment.bonus}</td>
-			<td><a href="<c:url value="../assignment/delete"><c:param name="id" value="${assignment.id}"/></c:url>">
+			<td>
+				<a href="<c:url value="../assignment/edit"><c:param name="id" value="${assignment.id}"/></c:url>">
+					edit
+				</a> | 
+				<a href="<c:url value="../assignment/delete"><c:param name="id" value="${assignment.id}"/></c:url>">
 					delete
 				</a>
 			</td>
