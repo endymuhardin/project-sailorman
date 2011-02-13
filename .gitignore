@@ -18,5 +18,10 @@ build
 dist
 private
 
+# Jasper Report
+*.bak
+
 # Upload result
 sailorman-ui.web/src/main/webapp/uploads/*
+
+

@@ -14,6 +14,15 @@
 <h2 class="title"><a href="#">Employee Information</a></h2>
 <div class="entry">
 
+<form action="export" method="post">
+<input type="hidden" name="id" value="${sailor.id}">
+
+Export to 
+<input type="radio" name="format" value="pdf" checked="checked">PDF 
+<input type="submit" value="Download"> 
+
+</form>
+
 <img src="../<c:out value="${sailor.photo}" />" height="100px">
 
 <table width="100%" border="1">

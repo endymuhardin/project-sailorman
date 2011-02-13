@@ -36,7 +36,14 @@
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<property name="prefix" value="/WEB-INF/templates/jsp/" />
 		<property name="suffix" value=".jsp" />
+		<property name="order" value="1" />
 	</bean>
+	
+	<bean id="jasperViewResolver" class="org.springframework.web.servlet.view.ResourceBundleViewResolver">
+		<property name="basename" value="views"/>
+		<property name="order" value="0"/>
+	</bean>
+		
 
 	<!-- Forwards requests to the "/" resource to the "hello" view -->
 	<mvc:view-controller path="/" view-name="hello" />

@@ -85,6 +85,21 @@ public class SailorController {
 		return "redirect:list";
 	}
 	
+	@RequestMapping("/export")
+	public ModelMap export(@RequestParam Long id, @RequestParam String format){
+		ModelMap result = new ModelMap();
+		Sailor sailor = sailorService.findSailor(id);
+		if(sailor == null) {
+			return result;
+		}
+		
+		result.addAttribute("sailor", sailor);
+		result.addAttribute("format", format);
+		result.addAttribute("assignments", sailorService.findAssignment(sailor));
+		
+		return result;
+	}
+	
 	@RequestMapping("/view")
 	public ModelMap view(@RequestParam Long id){
 		Sailor sailor = sailorService.findSailor(id);
