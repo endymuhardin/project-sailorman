@@ -14,7 +14,7 @@
 <h2 class="title"><a href="#">Employee Information</a></h2>
 <div class="entry">
 
-
+<img src="../<c:out value="${sailor.photo}" />" height="100px">
 
 <table width="100%" border="1">
 	<thead>
