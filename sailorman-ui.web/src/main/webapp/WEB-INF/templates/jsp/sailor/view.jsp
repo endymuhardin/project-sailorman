@@ -19,6 +19,7 @@
 
 Export to 
 <input type="radio" name="format" value="pdf" checked="checked">PDF 
+<input type="radio" name="format" value="xls">XLS 
 <input type="submit" value="Download"> 
 
 </form>
