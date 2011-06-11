@@ -35,6 +35,8 @@ import com.artivisi.sailorman.service.SailorService;
 @RequestMapping("/sailor")
 public class SailorController {
 	
+	private static final String LABEL_NEXT_PAGE = "next";
+
 	private static final String SESSION_KEY_EXISTING_PHOTO = "EXISTING_PHOTO";
 
 	private static final String SESSION_KEY_SAILOR_LIST = "sailorList";
@@ -65,7 +67,7 @@ public class SailorController {
 	        if (sailorList == null) {
 	            return new ModelMap();
 	        }
-	        if ("next".equals(page)) {
+	        if (LABEL_NEXT_PAGE.equals(page)) {
         		sailorList.nextPage();
 	        }
 	        else if ("previous".equals(page)) {
